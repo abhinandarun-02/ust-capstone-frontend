@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DialogService } from '../../../services/dialog.service';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  constructor(private dialogService: DialogService) {}
 
+  openRegisterDialog() {
+    this.dialogService.openAuthDialog("register");
+  }
 }

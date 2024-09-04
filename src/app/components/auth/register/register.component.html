@@ -14,14 +14,16 @@
         <input type="password" placeholder="Confirm password" required>
       </div>
       <div class="policy">
-        <input type="checkbox">
-        <h3>I accept all terms & condition</h3>
+        <input id="tc" type="checkbox">
+        <label for="tc"> I accept all terms & condition</label>
       </div>
       <div class="input-box button">
         <input type="Submit" value="Register Now">
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="#">Login now</a></h3>
+        <h3>Already have an account? <a (click)="openLoginDialog()">Login now</a></h3>
       </div>
     </form>
   </div>
+
+  
