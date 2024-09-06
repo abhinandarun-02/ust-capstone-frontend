@@ -1,0 +1,52 @@
+.event-card {
+    position: relative;
+    max-width: 300px;
+    overflow: hidden;
+    border-radius: 5px;
+
+    box-shadow: 0 2px 8px #00000026;
+    border-radius: .5rem;
+    transition: box-shadow .2s;
+    cursor: pointer;
+}
+
+.premium-tag{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #f10f0f;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 0 0 0 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.event-card img {
+    width: 100%;
+    height: auto;
+}
+
+.event-card-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+.event-card-details {
+    padding: 16px;
+    display:flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-card-subtitle {
+    display: flex;
+}
+
+.event-card-subtitle span, .event-package-details, .event-rating, .event-card-field span{
+    font-size: 14px;
+}

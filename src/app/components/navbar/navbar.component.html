@@ -1,0 +1,35 @@
+<header class="header">
+    <a class="" href="https://www.weddingwire.in/">
+        <img src="https://www.weddingwire.in/assets/img/logos/gen_logoHeader.svg" alt="Wedding" width="220" height="30">
+    </a>
+
+    <nav>
+        <ul class="nav-list">
+            @for (nav of navItems; track $index) {
+            <li class="nav-item">
+                <a class="nav-link" href="{{nav.href}}">{{nav.name}}</a>
+            </li>
+            }
+        </ul>
+    </nav>
+
+    <div class="user-nav">
+        <div class="user-nav-item">
+            <i class="bi bi-heart"></i>
+        </div>
+
+        <div class="user-nav-item">
+            <i class="bi bi-envelope"></i>
+        </div>
+
+        <mat-menu #menu="matMenu" class="user-dropdown">
+            <ul>
+                <li><a class="user-dropdown-item" href="#">My Profile</a></li>
+                <li><a class="user-dropdown-item" href="#">Settings</a></li>
+                <li><a class="user-dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </mat-menu>
+
+        <p-avatar [matMenuTriggerFor]="menu" class="user-avatar" image="/user.jfif" size="large" shape="circle" />
+    </div>
+</header>

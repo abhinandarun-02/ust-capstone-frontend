@@ -1,0 +1,11 @@
+<div class="px-2 py-5">
+    <h4 class="px-4">Featured Wedding Vendors</h4>
+    <div>
+        <p-carousel [value]="eventCards" [numVisible]="4" [numScroll]="3" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-eventCard pTemplate="item">
+                <app-event-card class="m-2"></app-event-card>
+            </ng-template>
+        </p-carousel>
+    </div>
+</div>
