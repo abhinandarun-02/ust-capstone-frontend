@@ -22,6 +22,8 @@ import { SidebarComponent } from './components/dashboard/sidebar/sidebar.compone
 import { DashboardNavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid } from '@ng-icons/heroicons/solid';
+import { OnboardingFormComponent } from './components/dashboard/onboarding-form/onboarding-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrow
     EventCardSliderComponent,
     DashboardComponent,
     SidebarComponent,
-    DashboardNavbarComponent
+    DashboardNavbarComponent,
+    OnboardingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrow
     CarouselModule,
     AvatarModule,
     MatMenuModule,
-
+    MatDialogModule,
     NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid }),
   ],
   providers: [

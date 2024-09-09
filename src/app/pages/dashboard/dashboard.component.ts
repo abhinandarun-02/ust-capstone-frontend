@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  constructor(private dialogService: DialogService) { }
+
+  openRegisterDialog() {
+    this.dialogService.openOnboardingDialog();
+  }
+
 
 }
