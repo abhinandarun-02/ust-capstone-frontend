@@ -17,6 +17,12 @@ import { EventCardComponent } from './components/event-card/event-card.component
 import { EventCardSliderComponent } from './components/event-card-slider/event-card-slider.component';
 import { CarouselModule } from 'primeng/carousel';
 import { AvatarModule } from 'primeng/avatar';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
+import { DashboardNavbarComponent } from './components/dashboard/navbar/navbar.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid } from '@ng-icons/heroicons/solid';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,10 @@ import { AvatarModule } from 'primeng/avatar';
     LandingComponent,
     HeroComponent,
     EventCardComponent,
-    EventCardSliderComponent
+    EventCardSliderComponent,
+    DashboardComponent,
+    SidebarComponent,
+    DashboardNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +47,8 @@ import { AvatarModule } from 'primeng/avatar';
     CarouselModule,
     AvatarModule,
     MatMenuModule,
+
+    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid }),
   ],
   providers: [
     provideAnimationsAsync()
