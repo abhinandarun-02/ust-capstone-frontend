@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DialogService } from '../../services/dialog.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +8,22 @@ import { DialogService } from '../../services/dialog.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  constructor(private dialogService: DialogService) { }
+  
+  dialogService = inject(DialogService)
+  userService = inject(UserService)
+
+  ngOnInit() {
+    this.checkOnboardingStatus();
+  }
+
+  checkOnboardingStatus() {
+    if (this.userService.isUserOnboarding()) {
+      this.openRegisterDialog();
+    }
+  }
 
   openRegisterDialog() {
-    this.dialogService.openOnboardingDialog();
+    this.dialogService.openOnboardingDialog({ disableClose: true });
   }
 
 

@@ -10,14 +10,14 @@
             </p>
         </div>
 
-        <form>
+        <form [formGroup]="onboardingForm" (ngSubmit)="onSubmit()">
             <!-- Grid -->
             <div class="grid sm:grid-cols-12 gap-2 sm:gap-6">
 
                 <h3 class="sm:col-span-12 text-black font-semibold text-lg"> About Us</h3>
 
                 <div class="sm:col-span-2">
-                    <label for="af-account-full-name" class="inline-block text-sm text-gray-800 mt-2.5">
+                    <label for="groom-name" class="inline-block text-sm text-gray-800 mt-2.5">
                         Groom name
                     </label>
                 </div>
@@ -25,15 +25,20 @@
 
                 <div class="sm:col-span-4">
                     <div class="sm:flex">
-                        <input id="groom-name" type="text"
+                        <input id="groom-name" type="text" formControlName="groomName"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                             placeholder="John">
+                    </div>
+                    <div *ngIf="onboardingForm.get('groomName')?.invalid && onboardingForm.get('groomName')?.touched"
+                        class="text-red-500 text-sm col-span-full">
+                        Groom name is required.
                     </div>
                 </div>
                 <!-- End Col -->
 
+
                 <div class="sm:col-span-2 ml-6">
-                    <label for="af-account-full-name" class="inline-block text-sm text-gray-800 mt-2.5">
+                    <label for="bride-name" class="inline-block text-sm text-gray-800 mt-2.5">
                         Bride name
                     </label>
                 </div>
@@ -41,9 +46,13 @@
 
                 <div class="sm:col-span-4">
                     <div class="sm:flex">
-                        <input id="bride-name" type="text"
+                        <input id="bride-name" type="text" formControlName="brideName"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                             placeholder="Maria">
+                    </div>
+                    <div *ngIf="onboardingForm.get('brideName')?.invalid && onboardingForm.get('brideName')?.touched"
+                        class="text-red-500 text-sm">
+                        Bride name is required.
                     </div>
                 </div>
                 <!-- End Col -->
@@ -58,9 +67,13 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-4">
-                    <input id="guest-count" type="text"
+                    <input id="guest-count" type="text" formControlName="guestCount"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                         placeholder="300">
+                    <div *ngIf="onboardingForm.get('guestCount')?.invalid && onboardingForm.get('guestCount')?.touched"
+                        class="text-red-500 text-sm">
+                        Number of guests is required.
+                    </div>
                 </div>
                 <!-- End Col -->
 
@@ -72,7 +85,7 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-4">
-                    <input id="budget" type="text"
+                    <input id="budget" type="text" formControlName="budget"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                         placeholder="">
                 </div>
@@ -86,7 +99,7 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-4">
-                    <input id="city" type="text"
+                    <input id="city" type="text" formControlName="city"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                         placeholder="">
                 </div>
@@ -98,41 +111,40 @@
                 </div>
 
                 <div class="sm:col-span-4">
-                    <input id="country" type="text"
+                    <input id="country" type="text" formControlName="country"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                         placeholder="">
                 </div>
                 <!-- End Col -->
 
                 <h3 class="sm:col-span-12 text-black font-semibold mt-8 text-lg">Services</h3>
-                <div class="sm:col-span-3 mt-2">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" class="form-checkbox text-blue-600">
-                        <span class="ml-2 text-gray-800">Photography</span>
-                    </label>
-                </div>
-                <div class="sm:col-span-3 mt-2">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" class="form-checkbox text-blue-600">
-                        <span class="ml-2 text-gray-800">Catering</span>
-                    </label>
-                </div>
-                <div class="sm:col-span-3 mt-2">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" class="form-checkbox text-blue-600">
-                        <span class="ml-2 text-gray-800">Venue</span>
-                    </label>
+                <div class="col-span-full grid sm:grid-cols-12 gap-2 sm:gap-6" formGroupName="services">
+                    <div class="sm:col-span-3 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" formControlName="photography" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-gray-800">Photography</span>
+                        </label>
+                    </div>
+                    <div class="sm:col-span-3 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" formControlName="catering" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-gray-800">Catering</span>
+                        </label>
+                    </div>
+                    <div class="sm:col-span-3 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" formControlName="venue" class="form-checkbox text-blue-600">
+                            <span class="ml-2 text-gray-800">Venue</span>
+                        </label>
+                    </div>
                 </div>
             </div>
             <!-- End Grid -->
 
             <div class="mt-5 flex justify-end gap-x-2">
-                <button mat-dialog-close type="button"
-                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50">
-                    Cancel
-                </button>
-                <button type="button"
-                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                <button type="submit"
+                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                    [disabled]="onboardingForm.invalid">
                     Save changes
                 </button>
             </div>
