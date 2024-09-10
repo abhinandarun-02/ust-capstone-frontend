@@ -24,6 +24,11 @@ import { NgIconsModule } from '@ng-icons/core';
 import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid } from '@ng-icons/heroicons/solid';
 import { OnboardingFormComponent } from './components/dashboard/onboarding-form/onboarding-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { tokenInterceptor } from './interceptors/token.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent as DashboardLoginComponent } from './pages/login/login.component';
+import { RegisterComponent as DashboardRegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -39,7 +44,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     DashboardComponent,
     SidebarComponent,
     DashboardNavbarComponent,
-    OnboardingFormComponent
+    OnboardingFormComponent,
+    DashboardLoginComponent,
+    DashboardRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +58,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     AvatarModule,
     MatMenuModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid }),
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch(), withInterceptors([tokenInterceptor])),
   ],
   bootstrap: [AppComponent]
 })
