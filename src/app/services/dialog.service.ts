@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { LoginComponent } from '../components/auth/login/login.component';
 import { OnboardingFormComponent } from '../components/dashboard/onboarding-form/onboarding-form.component';
@@ -27,12 +27,13 @@ export class DialogService {
     }
   }
 
-  openOnboardingDialog(){
+  openOnboardingDialog(config?: MatDialogConfig) {
     this.dialog.closeAll();
 
     this.dialog.open(OnboardingFormComponent, {
       width: '100%',
-      maxWidth: '950px'
+      maxWidth: '950px',
+      ...config
     })
   }
 
