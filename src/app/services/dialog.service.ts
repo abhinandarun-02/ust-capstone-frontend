@@ -37,4 +37,8 @@ export class DialogService {
     })
   }
 
+  closeAllDialog(){
+    this.dialog.closeAll();
+  }
+
 }
