@@ -6,8 +6,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/no-auth.guard';
-import { ServicesComponent } from './pages/dashboard/services/services.component';
 import { HomeComponent } from './pages/dashboard/home/home.component';
+import { VenueComponent } from './pages/dashboard/services/venue/venue.component';
+import { PhotographyComponent } from './pages/dashboard/services/photography/photography.component';
+import { CateringComponent } from './pages/dashboard/services/catering/catering.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -18,10 +20,17 @@ const routes: Routes = [
         path: '',
         component: HomeComponent
       },
-
       {
-        path: 'services',
-        component: ServicesComponent
+        path: 'services/venue',
+        component: VenueComponent
+      },
+      {
+        path: 'services/photography',
+        component: PhotographyComponent
+      },
+      {
+        path: 'services/catering',
+        component: CateringComponent
       }
     ]
   },

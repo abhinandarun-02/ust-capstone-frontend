@@ -22,12 +22,6 @@ export class SidebarComponent implements OnInit {
         icon: 'heroHomeSolid',
         disabled: false
       },
-      {
-        label: 'Services',
-        href: '/dashboard/services',
-        icon: 'heroAdjustmentsHorizontalSolid',
-        disabled: false
-      }
     ]
   }
 
