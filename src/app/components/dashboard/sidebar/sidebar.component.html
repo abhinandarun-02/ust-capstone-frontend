@@ -7,58 +7,45 @@
                 <ul class="space-y-2 pb-2">
                     @for (item of navigationItems; track $index) {
                     <li>
-                        <a routerLink={{item.href}}
+                        @if (item.subItems) {
+                        <details class="group [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                class="text-base text-gray-900 font-normal rounded-lg flex justify-between items-center p-2 hover:bg-gray-100 group">
+                                <div class="flex items-center">
+                                    <ng-icon
+                                        class="!w-6 !h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        name={{item.icon}}></ng-icon>
+                                    <span class="ml-3">{{item.label}}</span>
+                                </div>
+                                <span class="shrink-0 transition duration-300 group-open:-rotate-180 flex items-center">
+                                    <ng-icon
+                                        class="!w-5 !h-5 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        name="heroChevronDownSolid"></ng-icon>
+                                </span>
+                            </summary>
+                            <ul class="mt-2 space-y-1 px-4">
+                                @for (subItem of item.subItems; track $index) {
+                                <li>
+                                    <a routerLink={{subItem.href}} routerLinkActive="bg-gray-100"
+                                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                        {{subItem.label}}
+                                    </a>
+                                </li>
+                                }
+                            </ul>
+                        </details>
+                        } @else {
+                        <a routerLink="{{item.href}}" routerLinkActive="bg-gray-100"
+                            [routerLinkActiveOptions]="{ exact: true }"
                             class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
                             <ng-icon
                                 class="!w-6 !h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                 name={{item.icon}}></ng-icon>
                             <span class="ml-3">{{item.label}}</span>
                         </a>
+                        }
                     </li>
                     }
-                    <li>
-                        <details class="group [&_summary::-webkit-details-marker]:hidden">
-                            <summary
-                                class="text-base text-gray-900 font-normal rounded-lg flex justify-between items-center p-2 hover:bg-gray-100 group">
-                                <div class="flex items-center">
-                                    <ng-icon
-                                        class="!w-6 !h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
-                                        name="heroAdjustmentsHorizontalSolid"></ng-icon>
-                                    <span class="ml-3"> Services </span>
-                                </div>
-
-                                <span class="shrink-0 transition duration-300 group-open:-rotate-180">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                            </summary>
-
-                            <ul class="mt-2 space-y-1 px-4">
-                                <li>
-                                    <a routerLink="services/venue"
-                                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                                        Venue
-                                    </a>
-                                </li>
-                                <li>
-                                    <a routerLink="services/catering"
-                                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                                        Catering
-                                    </a>
-                                </li>
-                                <li>
-                                    <a routerLink="services/photography"
-                                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                                        Photography
-                                    </a>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
                 </ul>
             </div>
         </div>

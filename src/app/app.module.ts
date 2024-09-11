@@ -21,7 +21,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { DashboardNavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { NgIconsModule } from '@ng-icons/core';
-import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid } from '@ng-icons/heroicons/solid';
+import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid } from '@ng-icons/heroicons/solid';
 import { OnboardingFormComponent } from './components/dashboard/onboarding-form/onboarding-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
@@ -70,7 +70,7 @@ import { CateringComponent } from './pages/dashboard/services/catering/catering.
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid }),
+    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid }),
   ],
   providers: [
     provideAnimationsAsync(),
