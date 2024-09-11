@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from '../../environments/environment';
+import { JwtClaim } from '../models/jwtClaim.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private payloadData: any;
+  private payloadData: JwtClaim | null;
 
   constructor(private http: HttpClient, private router: Router) {
     this.payloadData = this.decodeToken();
@@ -45,14 +46,15 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  decodeToken() {
-    const token = this.getToken()!;
+  decodeToken(): JwtClaim | null {
+    const token = this.getToken();
+    if (!token) return null;
     const jwthelper = new JwtHelperService();
     console.log(jwthelper.decodeToken(token));
     return jwthelper.decodeToken(token);
   }
 
-  getUserDetails(): any {
-    
+  getUserClaims() {
+    return this.payloadData;
   }
 }
