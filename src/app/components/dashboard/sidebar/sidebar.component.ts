@@ -18,13 +18,13 @@ export class SidebarComponent implements OnInit {
     this.navigationItems = [
       {
         label: 'Home',
-        href: 'home',
+        href: '/dashboard',
         icon: 'heroHomeSolid',
         disabled: false
       },
       {
         label: 'Services',
-        href: '/services',
+        href: '/dashboard/services',
         icon: 'heroAdjustmentsHorizontalSolid',
         disabled: false
       }

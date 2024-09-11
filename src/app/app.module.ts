@@ -29,6 +29,8 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent as DashboardLoginComponent } from './pages/login/login.component';
 import { RegisterComponent as DashboardRegisterComponent } from './pages/register/register.component';
+import { ServicesComponent } from './pages/dashboard/services/services.component';
+import { HomeComponent } from './pages/dashboard/home/home.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { RegisterComponent as DashboardRegisterComponent } from './pages/registe
     DashboardNavbarComponent,
     OnboardingFormComponent,
     DashboardLoginComponent,
-    DashboardRegisterComponent
+    DashboardRegisterComponent,
+    ServicesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

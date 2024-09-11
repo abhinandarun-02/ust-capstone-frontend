@@ -55,8 +55,8 @@
                         <img alt="" src="/user.jfif" class="size-10 rounded-full object-cover" />
                         <div>
                             <p class="text-xs">
-                                <strong class="block font-medium">Abhinand Arun</strong>
-                                <span> {{'abhinandarun2015@gmail.com'}} </span>
+                                <strong class="block font-medium">{{getUserDetails()?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']}}</strong>
+                                <span> {{getUserDetails()?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress']}} </span>
                             </p>
                         </div>
                     </a>
