@@ -1,5 +1,5 @@
 import { Catering } from "./catering.model";
-import { Photography } from "./photography.model copy";
+import { Photography } from "./photography.model";
 import { Venue } from "./venue.model";
 
 export interface Service {

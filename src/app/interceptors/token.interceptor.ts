@@ -22,6 +22,7 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next): Observable<HttpE
 
   return next(req).pipe(
     catchError((err: HttpErrorResponse) => {
+
       if (err.status === 401) {
         router.navigate(['login']);
       }
