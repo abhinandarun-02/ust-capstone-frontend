@@ -53,8 +53,10 @@
             <h2 class="">Budget Spent</h2>
         </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 justify-items-center">
-        <div class="col-span-1"></div>
+    <div class="grid grid-cols-1 xl:grid-cols-3 justify-items-center gap-y-12">
+        <div class="col-span-1 xl:col-span-2 w-full">
+            <app-expense-table />
+        </div>
         <div class="col-span-1 border p-4 rounded-lg">
             <p-chart type="doughnut" [data]="data" class="max-w-sm block" />
             <h2 class="text-center mt-3 font-medium uppercase">Budget Breakdown</h2>
