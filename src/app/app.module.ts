@@ -21,16 +21,22 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { DashboardNavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { NgIconsModule } from '@ng-icons/core';
-import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid } from '@ng-icons/heroicons/solid';
+import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid } from '@ng-icons/heroicons/solid';
 import { OnboardingFormComponent } from './components/dashboard/onboarding-form/onboarding-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent as DashboardLoginComponent } from './pages/login/login.component';
 import { RegisterComponent as DashboardRegisterComponent } from './pages/register/register.component';
-import { ServicesComponent } from './pages/dashboard/services/services.component';
 import { HomeComponent } from './pages/dashboard/home/home.component';
+import { ProductsComponent } from './components/products/products.component';
+import { VenueComponent } from './pages/dashboard/services/venue/venue.component';
+import { PhotographyComponent } from './pages/dashboard/services/photography/photography.component';
+import { CateringComponent } from './pages/dashboard/services/catering/catering.component';
+import { ChartModule } from 'primeng/chart';
+import { ExpenseTableComponent } from './components/dashboard/expense-table/expense-table.component';
 
 
 @NgModule({
@@ -49,8 +55,12 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
     OnboardingFormComponent,
     DashboardLoginComponent,
     DashboardRegisterComponent,
-    ServicesComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsComponent,
+    VenueComponent,
+    PhotographyComponent,
+    CateringComponent,
+    ExpenseTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +74,9 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid }),
+    ChartModule,
+    MatFormFieldModule,
+    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid }),
   ],
   providers: [
     provideAnimationsAsync(),

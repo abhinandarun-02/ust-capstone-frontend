@@ -3,4 +3,5 @@ export type NavItem = {
     href: string;
     icon: string;
     disabled: boolean;
+    subItems?: NavItem[];
 }

@@ -1,1 +1,65 @@
-<p>home works!</p>
+<div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-6 p-4">
+        <div class="bg-white rounded-lg border lg:col-span-3">
+            <p id="countdown" class="text-2xl"></p>
+            <div class="rounded-lg overflow-hidden">
+                <div class="flex flex-col md:flex-row">
+                    <div class="text-center p-4 md:w-1/2">
+                        <p class="text-gray-600 mb-4 lg:text-nowrap">15th of August, 2025</p>
+                        <dl class="grid grid-cols-4 gap-4 text-center">
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">days</dt>
+                                <dd class="text-lg font-semibold">337</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">hours</dt>
+                                <dd class="text-lg font-semibold">9</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">min</dt>
+                                <dd class="text-lg font-semibold">39</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">s</dt>
+                                <dd class="text-lg font-semibold">2</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="flex justify-center items-center w-full">
+                        <a>
+                            <img src="https://cdn1.weddingwire.in/assets/tools/en_IN/bg_dash-cover.jpg" alt="John"
+                                class="max-w-32 max-h-32 w-full rounded-lg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bg-white p-6 rounded-lg border lg:col-span-2">
+            <img class="size-12" src="https://cdn1.weddingwire.in/assets/svg/original/illustration/notebook.svg" alt="">
+            <p class="font-bold mt-2">0 of 5</p>
+            <h2 class="">Services Registered</h2>
+        </div>
+        <div class="bg-white p-6 rounded-lg border lg:col-span-2">
+            <img class="size-12" src="https://cdn1.weddingwire.in/assets/svg/original/illustration/add_guest.svg"
+                alt="">
+            <p class="font-bold mt-2">3 of 4</p>
+            <h2 class="">Guests Attending</h2>
+        </div>
+        <div class="bg-white p-6 rounded-lg border lg:col-span-2">
+            <img class="size-12" src="https://cdn1.weddingwire.in/assets/svg/original/illustration/calculator.svg"
+                alt="">
+            <p class="font-bold mt-2">$10,000</p>
+            <h2 class="">Budget Spent</h2>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 xl:grid-cols-3 justify-items-center gap-y-12">
+        <div class="col-span-1 xl:col-span-2 w-full">
+            <app-expense-table />
+        </div>
+        <div class="col-span-1 border p-4 rounded-lg">
+            <p-chart type="doughnut" [data]="data" class="max-w-sm block" />
+            <h2 class="text-center mt-3 font-medium uppercase">Budget Breakdown</h2>
+        </div>
+    </div>
+</div>

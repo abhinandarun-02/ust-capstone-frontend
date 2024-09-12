@@ -7,13 +7,43 @@
                 <ul class="space-y-2 pb-2">
                     @for (item of navigationItems; track $index) {
                     <li>
-                        <a routerLink={{item.href}}
+                        @if (item.subItems) {
+                        <details class="group [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                class="text-base text-gray-900 font-normal rounded-lg flex justify-between items-center p-2 hover:bg-gray-100 group">
+                                <div class="flex items-center">
+                                    <ng-icon
+                                        class="!w-6 !h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        name={{item.icon}}></ng-icon>
+                                    <span class="ml-3">{{item.label}}</span>
+                                </div>
+                                <span class="shrink-0 transition duration-300 group-open:-rotate-180 flex items-center">
+                                    <ng-icon
+                                        class="!w-5 !h-5 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        name="heroChevronDownSolid"></ng-icon>
+                                </span>
+                            </summary>
+                            <ul class="mt-2 space-y-1 px-4">
+                                @for (subItem of item.subItems; track $index) {
+                                <li>
+                                    <a routerLink={{subItem.href}} routerLinkActive="bg-gray-100"
+                                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                        {{subItem.label}}
+                                    </a>
+                                </li>
+                                }
+                            </ul>
+                        </details>
+                        } @else {
+                        <a routerLink="{{item.href}}" routerLinkActive="bg-gray-100"
+                            [routerLinkActiveOptions]="{ exact: true }"
                             class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
                             <ng-icon
                                 class="!w-6 !h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                 name={{item.icon}}></ng-icon>
                             <span class="ml-3">{{item.label}}</span>
                         </a>
+                        }
                     </li>
                     }
                 </ul>
