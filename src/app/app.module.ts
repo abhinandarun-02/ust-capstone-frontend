@@ -34,6 +34,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { VenueComponent } from './pages/dashboard/services/venue/venue.component';
 import { PhotographyComponent } from './pages/dashboard/services/photography/photography.component';
 import { CateringComponent } from './pages/dashboard/services/catering/catering.component';
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { CateringComponent } from './pages/dashboard/services/catering/catering.
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    ChartModule,
     NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid }),
   ],
   providers: [
