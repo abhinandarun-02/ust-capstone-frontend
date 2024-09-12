@@ -15,19 +15,46 @@ export class PhotographyComponent {
       about: "Capture your special moments with our professional photography services. Browse through our collection of photographers and filter by availability, price, and more.",
       products: [
         {
-          title: "Shutterbug Studios",
-          about: "Shutterbug Studios is a professional photography service located in the city of Mumbai. They specialize in capturing the essence of your wedding with stunning visuals. If you are looking for a great photography service to capture your wedding moments, then Shutterbug Studios is the choice that you should definitely make. They will ensure to make your wedding memories grand, eventful, and worth remembering a lifetime.",
-          image: "/photography-1.webp",
-          location: "Mumbai",
-          price: 15000
+          name: "PhotoMagic Studios",
+          price: 2500.0,
+          location: "Los Angeles",
+          about: "Specializing in wedding photography with a magical touch.",
+          rating: 4.9,
+          tier: "Luxury",
+          contact: "contact@photomagic.com",
+          details: "Full-day coverage, digital album, and prints"
         },
         {
-          title: "Lens Queen Photography",
-          about: "Lens Queen Photography is a professional photography service located in the city of Udaipur. They specialize in capturing the essence of your wedding with stunning visuals. If you are looking for a great photography service to capture your wedding moments, then Lens Queen Photography is the choice that you should definitely make. They will ensure to make your wedding memories grand, eventful, and worth remembering a lifetime.",
-          image: "/photography-2.webp",
-          location: "Udaipur",
-          price: 25000
+          name: "Event Snapshots",
+          price: 1800.0,
+          location: "New York",
+          about: "Capturing the essence of every event.",
+          rating: 4.7,
+          tier: "Standard",
+          contact: "info@eventsnapshots.com",
+          details: "Half-day coverage, digital photos"
+        },
+        {
+          name: "Memorable Moments",
+          price: 2200.0,
+          location: "Miami",
+          about: "High-quality photography with creative styles.",
+          rating: 4.8,
+          tier: "Luxury",
+          contact: "contact@memorablemoments.com",
+          details: "Full-day coverage, digital and printed photos"
+        },
+        {
+          name: "Capture All",
+          price: 1500.0,
+          location: "San Francisco",
+          about: "Affordable and reliable photography services.",
+          rating: 4.5,
+          tier: "Standard",
+          contact: "info@captureall.com",
+          details: "Basic coverage with digital photos"
         }
+
       ]
     }
   }

@@ -18,7 +18,7 @@ export class ProductsComponent {
     const [key, order] = this.selectedSortOption.split(', ');
 
     this.service.products.sort((a, b) => {
-      const compare = (key === 'Name' ? a.title.localeCompare(b.title) : a.price - b.price);
+      const compare = (key === 'Name' ? a.name.localeCompare(b.name) : a.price - b.price);
       return order === 'ASC' ? compare : -compare;
     });
   }

@@ -5,9 +5,14 @@ export interface Service {
 }
 
 interface Product {
-    title: string;
-    image: string;
-    about: string;
-    location: string;
+    name: string;
     price: number;
+    location: string;
+    about: string;
+    rating: number;
+    tier: string;
+    contact: string;
+    details?: string;
+    capacity?:number;
+    address?: string
 }

@@ -15,25 +15,48 @@ export class VenueComponent {
       about: "Find and book the perfect venue for your wedding. Browse through our collection of venues and filter by availability, price, and more.",
       products: [
         {
-          title: "Giant Events India LLP",
-          about: "Giant Events India LLP is a wedding venue located in the city of Mumbai. It is a beautiful venue to host any of your wedding functions. The first step to organising the wedding functions perfectly is to choose the right venue. If you are looking for a great venue to host your wedding functions, then Giant Events India LLP is the choice that you should definitely make. It is a one-stop destination for all your requirements for a good wedding venue. They will ensure to make your wedding grand, eventful and worth remembering a lifetime.",
-          image: "/venue.webp",
-          location: "Mumbai",
-          price: 10000
+          name: "Grand Ballroom",
+          price: 8000.0,
+          location: "New York",
+          about: "A luxurious venue with a grand view and ample space.",
+          rating: 4.9,
+          tier: "Luxury",
+          contact: "contact@grandballroom.com",
+          capacity: 500,
+          address: "123 Grand Ave, New York, NY"
         },
         {
-          title: "The Leela Palace",
-          about: "The Leela Palace is a wedding venue located in the city of Udaipur. It is a beautiful venue to host any of your wedding functions. The first step to organising the wedding functions perfectly is to choose the right venue. If you are looking for a great venue to host your wedding functions, then The Leela Palace is the choice that you should definitely make. It is a one-stop destination for all your requirements for a good wedding venue. They will ensure to make your wedding grand, eventful and worth remembering a lifetime.",
-          image: "/venue-2.webp",
-          location: "Udaipur",
-          price: 20000
+          name: "Ocean View Resort",
+          price: 6000.0,
+          location: "Miami",
+          about: "Beautiful beachside venue with stunning ocean views.",
+          rating: 4.7,
+          tier: "Premium",
+          contact: "info@oceanviewresort.com",
+          capacity: 300,
+          address: "456 Beach Blvd, Miami, FL"
         },
         {
-          title: "The Oberoi Udaivilas",
-          about: "The Oberoi Udaivilas is a wedding venue located in the city of Udaipur. It is a beautiful venue to host any of your wedding functions. The first step to organising the wedding functions perfectly is to choose the right venue. If you are looking for a great venue to host your wedding functions, then The Oberoi Udaivilas is the choice that you should definitely make. It is a one-stop destination for all your requirements for a good wedding venue. They will ensure to make your wedding grand, eventful and worth remembering a lifetime.",
-          image: "/venue-1.webp",
-          location: "Udaipur",
-          price: 30000
+          name: "Elegant Gardens",
+          price: 5500.0,
+          location: "San Francisco",
+          about: "A picturesque garden venue perfect for outdoor weddings.",
+          rating: 4.8,
+          tier: "Premium",
+          contact: "contact@elegantgardens.com",
+          capacity: 250,
+          address: "789 Garden St, San Francisco, CA"
+        },
+        {
+          name: "Modern Loft",
+          price: 4000.0,
+          location: "Chicago",
+          about: "A chic, modern space for urban weddings.",
+          rating: 4.6,
+          tier: "Standard",
+          contact: "info@modernloft.com",
+          capacity: 150,
+          address: "101 Loft Lane, Chicago, IL"
         }
       ]
     }
