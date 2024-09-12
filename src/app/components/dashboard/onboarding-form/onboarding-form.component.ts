@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { DialogService } from '../../../services/dialog.service';
+import { WeddingService } from '../../../services/wedding.service';
 
 @Component({
   selector: 'app-onboarding-form',
@@ -14,6 +15,7 @@ export class OnboardingFormComponent implements OnInit {
   private fb = inject(FormBuilder)
   private userService = inject(UserService)
   private dialogService = inject(DialogService)
+  private weddingService = inject(WeddingService)
 
   ngOnInit(): void {
     this.onboardingForm = this.fb.group({
@@ -31,11 +33,12 @@ export class OnboardingFormComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     if (this.onboardingForm.valid) {
       console.log(this.onboardingForm.value);
       this.userService.setUserOnboardingStatus(false)
-      this.dialogService.closeAllDialog();
+      const wedding = this.onboardingForm.value;
+      await this.weddingService.createWedding(wedding)
     }
   }
 }
