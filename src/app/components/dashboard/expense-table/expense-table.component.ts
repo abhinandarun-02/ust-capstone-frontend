@@ -16,6 +16,7 @@ export class ExpenseTableComponent {
       weddingId: 1,
       name: 'Flowers',
       category: 'Decorations',
+      createdAt: '2020-11-01',
       dueDate: '2020-12-01',
       cost: 500,
       notes: 'Roses and lilies'
@@ -25,6 +26,7 @@ export class ExpenseTableComponent {
       weddingId: 1,
       name: 'Catering',
       category: 'Food',
+      createdAt: '2020-11-01',
       dueDate: '2020-12-01',
       cost: 2000,
       notes: 'Buffet style'
@@ -34,6 +36,7 @@ export class ExpenseTableComponent {
       weddingId: 1,
       name: 'Photographer',
       category: 'Photography',
+      createdAt: '2020-11-01',
       dueDate: '2020-12-01',
       cost: 1500,
       notes: 'Includes engagement photos'
@@ -43,6 +46,7 @@ export class ExpenseTableComponent {
       weddingId: 1,
       name: 'Flowers',
       category: 'Decorations',
+      createdAt: '2020-11-01',
       dueDate: '2020-12-01',
       cost: 500,
       notes: 'Roses and lilies'
@@ -52,6 +56,7 @@ export class ExpenseTableComponent {
       weddingId: 1,
       name: 'Catering',
       category: 'Food',
+      createdAt: '2020-11-01',
       dueDate: '2020-12-01',
       cost: 2000,
       notes: 'Buffet style'
@@ -61,6 +66,7 @@ export class ExpenseTableComponent {
       weddingId: 1,
       name: 'Photographer',
       category: 'Photography',
+      createdAt: '2020-11-01',
       dueDate: '2020-12-01',
       cost: 1500,
       notes: 'Includes engagement photos'
