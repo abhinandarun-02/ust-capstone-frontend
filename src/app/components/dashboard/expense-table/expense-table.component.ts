@@ -8,11 +8,7 @@ import { DialogService } from '../../../services/dialog.service';
   styleUrl: './expense-table.component.css'
 })
 export class ExpenseTableComponent {
-  private dialogService = inject(DialogService);
 
-  openExpenseDialog() {
-    this.dialogService.openExpenseDialog();
-  }
 
   expenses: Expense[] = [
     {
