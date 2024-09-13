@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private loginService: AuthService,
     private router: Router,
+    private toaster: ToastService
   ) {
     this.loginForm = this.fb.group({
       Email: ['', [Validators.required, Validators.email]],
@@ -47,6 +49,7 @@ export class LoginComponent {
       next: (response) => {
         console.log('POST request successful:', response);
 
+        this.toaster.success("Login Successful")
         this.auth.storeToken(response.token);
 
 
@@ -55,6 +58,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.error('Error occurred during POST request:', err);
+        this.toaster.error("Something wrong")
       }
     });
   }
