@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { Expense } from '../../../models/expense.model';
 import { DialogService } from '../../../services/dialog.service';
 
@@ -9,67 +9,74 @@ import { DialogService } from '../../../services/dialog.service';
 })
 export class ExpenseTableComponent {
 
+  //input Expense required
 
-  expenses: Expense[] = [
-    {
-      id: 1,
-      weddingId: 1,
-      name: 'Flowers',
-      category: 'Decorations',
-      createdAt: '2020-11-01',
-      dueDate: '2020-12-01',
-      cost: 500,
-      notes: 'Roses and lilies'
-    },
-    {
-      id: 2,
-      weddingId: 1,
-      name: 'Catering',
-      category: 'Food',
-      createdAt: '2020-11-01',
-      dueDate: '2020-12-01',
-      cost: 2000,
-      notes: 'Buffet style'
-    },
-    {
-      id: 3,
-      weddingId: 1,
-      name: 'Photographer',
-      category: 'Photography',
-      createdAt: '2020-11-01',
-      dueDate: '2020-12-01',
-      cost: 1500,
-      notes: 'Includes engagement photos'
-    },
-    {
-      id: 1,
-      weddingId: 1,
-      name: 'Flowers',
-      category: 'Decorations',
-      createdAt: '2020-11-01',
-      dueDate: '2020-12-01',
-      cost: 500,
-      notes: 'Roses and lilies'
-    },
-    {
-      id: 2,
-      weddingId: 1,
-      name: 'Catering',
-      category: 'Food',
-      createdAt: '2020-11-01',
-      dueDate: '2020-12-01',
-      cost: 2000,
-      notes: 'Buffet style'
-    },
-    {
-      id: 3,
-      weddingId: 1,
-      name: 'Photographer',
-      category: 'Photography',
-      createdAt: '2020-11-01',
-      dueDate: '2020-12-01',
-      cost: 1500,
-      notes: 'Includes engagement photos'
-    },
-  ];
+  @Input({ required: true }) expenses!: Expense[];
+
+  getDate(date: string) {
+    return new Date(date).toDateString();
+  }
+
+  // expenses: Expense[] = [
+  //   {
+  //     id: 1,
+  //     weddingId: 1,
+  //     name: 'Flowers',
+  //     category: 'Decorations',
+  //     createdAt: '2020-11-01',
+  //     dueDate: '2020-12-01',
+  //     cost: 500,
+  //     notes: 'Roses and lilies'
+  //   },
+  //   {
+  //     id: 2,
+  //     weddingId: 1,
+  //     name: 'Catering',
+  //     category: 'Food',
+  //     createdAt: '2020-11-01',
+  //     dueDate: '2020-12-01',
+  //     cost: 2000,
+  //     notes: 'Buffet style'
+  //   },
+  //   {
+  //     id: 3,
+  //     weddingId: 1,
+  //     name: 'Photographer',
+  //     category: 'Photography',
+  //     createdAt: '2020-11-01',
+  //     dueDate: '2020-12-01',
+  //     cost: 1500,
+  //     notes: 'Includes engagement photos'
+  //   },
+  //   {
+  //     id: 1,
+  //     weddingId: 1,
+  //     name: 'Flowers',
+  //     category: 'Decorations',
+  //     createdAt: '2020-11-01',
+  //     dueDate: '2020-12-01',
+  //     cost: 500,
+  //     notes: 'Roses and lilies'
+  //   },
+  //   {
+  //     id: 2,
+  //     weddingId: 1,
+  //     name: 'Catering',
+  //     category: 'Food',
+  //     createdAt: '2020-11-01',
+  //     dueDate: '2020-12-01',
+  //     cost: 2000,
+  //     notes: 'Buffet style'
+  //   },
+  //   {
+  //     id: 3,
+  //     weddingId: 1,
+  //     name: 'Photographer',
+  //     category: 'Photography',
+  //     createdAt: '2020-11-01',
+  //     dueDate: '2020-12-01',
+  //     cost: 1500,
+  //     notes: 'Includes engagement photos'
+  //   },
+  // ];
 }

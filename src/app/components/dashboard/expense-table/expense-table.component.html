@@ -79,19 +79,13 @@
                                     <th scope="col" class="px-6 py-3 text-start">
                                         <div class="flex items-center gap-x-2">
                                             <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
-                                                Due Date
-                                            </span>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-start">
-                                        <div class="flex items-center gap-x-2">
-                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
                                                 Notes
                                             </span>
                                         </div>
                                     </th>
 
 
+                                    <th scope="col" class="px-6 py-3 text-end"></th>
                                     <th scope="col" class="px-6 py-3 text-end"></th>
                                 </tr>
                             </thead>
@@ -125,12 +119,7 @@
                                     </td>
                                     <td class="size-px whitespace-nowrap">
                                         <div class="px-6 py-3">
-                                            <span class="text-sm text-gray-500">{{expense.createdAt}}</span>
-                                        </div>
-                                    </td>
-                                    <td class="size-px whitespace-nowrap">
-                                        <div class="px-6 py-3">
-                                            <span class="text-sm text-gray-500">{{expense.dueDate}}</span>
+                                            <span class="text-sm text-gray-500">{{getDate(expense.createdAt)}}</span>
                                         </div>
                                     </td>
                                     <td class="size-px whitespace-nowrap">
@@ -143,6 +132,14 @@
                                             <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
                                                 href="#">
                                                 Edit
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="size-px whitespace-nowrap">
+                                        <div class="px-6 py-1.5">
+                                            <a class="inline-flex items-center gap-x-1 text-sm text-red-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
+                                                href="#">
+                                                Delete
                                             </a>
                                         </div>
                                     </td>

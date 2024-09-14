@@ -56,13 +56,13 @@
         </div>
         <div class="bg-white p-6 rounded-lg border lg:col-span-2">
             <img class="size-12" src="/icons/calculator.svg" alt="">
-            <p class="font-bold mt-2">$10,000</p>
+            <p class="font-bold mt-2">₹{{getTotalBudget()}}</p>
             <h2 class="">Budget Spent</h2>
         </div>
     </div>
     <div class="grid grid-cols-1 xl:grid-cols-3 justify-items-center gap-y-12">
         <div class="col-span-1 xl:col-span-2 w-full">
-            <app-expense-table />
+            <app-expense-table [expenses]="expenses" />
         </div>
         <div class="col-span-1 border p-4 rounded-lg">
             <p-chart type="doughnut" [data]="data" class="max-w-sm block" />
