@@ -6,9 +6,10 @@ export interface Service {
     id: number;
     type: string;
     weddingId: number;
-    cateringId?: number;
-    photographyId?: number;
-    venueId?: number;
+    weddingName: string;
+    cateringName?: string;
+    photographyName?: string;
+    venueName?: string;
     cateringDetails?: Catering;
     photographyDetails?: Photography;
     venueDetails?: Venue;

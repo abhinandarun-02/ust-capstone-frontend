@@ -22,4 +22,32 @@ export class WeddingService {
     const response = this.http.get<Wedding>(`${environment.eventUrl}/wedding/plannerId/${plannerId}`);
     return response;
   }
+
+  bookVenue(weddingId: number, venueId: number) {
+    const response = this.http.post<string>(`${environment.eventUrl}/services`, {
+      "WeddingId": weddingId,
+      "VenueId": venueId,
+      "Type": "Venue"
+    });
+    return response;
+  }
+
+  bookPhotography(weddingId: number, photographyId: number) {
+    const response = this.http.post<string>(`${environment.eventUrl}/services`, {
+      "WeddingId": weddingId,
+      "PhotographyId": photographyId,
+      "Type": "Photography"
+    });
+    return response;
+  }
+
+  bookCatering(weddingId: number, cateringId: number) {
+    const response = this.http.post<string>(`${environment.eventUrl}/services`, {
+      "WeddingId": weddingId,
+      "CateringId": cateringId,
+      "Type": "Catering"
+    });
+    return response;
+  }
+
 }

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { VendorService } from '../../../../services/vendor.service';
 import { Catering } from '../../../../models/catering.model';
 import { ConfirmationService } from 'primeng/api';
+import { WeddingService } from '../../../../services/wedding.service';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-catering',
@@ -15,6 +17,8 @@ export class CateringPageComponent implements OnInit {
   isExpanded: boolean = true;
 
   private cateringService = inject(VendorService);
+  private authService = inject(AuthService);
+  private weddingService = inject(WeddingService);
 
   constructor(private route: ActivatedRoute, private confirmationService: ConfirmationService) { }
 
@@ -35,9 +39,33 @@ export class CateringPageComponent implements OnInit {
 
   confirm() {
     this.confirmationService.confirm({
-      message: 'Are you sure you want to book this venue?',
+      message: 'Are you sure you want to book this catering?',
       accept: () => {
+        let userId = this.authService.getUserId();
+        if (!userId) {
+          return;
+        }
 
+        this.weddingService.getWeddingByPlannerId(userId).subscribe({
+          next: (wedding) => {
+            let weddingId = wedding.id;
+            if (!weddingId) {
+              return;
+            }
+
+            this.weddingService.bookVenue(weddingId, this.catering.id).subscribe({
+              next: (response) => {
+                console.log(response);
+              },
+              error: (error) => {
+                console.error(error);
+              }
+            });
+          },
+          error: (error) => {
+            console.error(error);
+          }
+        });
       }
     });
   }
