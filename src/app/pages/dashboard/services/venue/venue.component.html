@@ -1,1 +1,96 @@
-<app-products [service]="venueService" />
+<section>
+    <div class="mx-auto max-w-screen-xl p-4 sm:px-6 sm:py-12 lg:px-8">
+        <header>
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">{{venueService.title}}</h2>
+
+            <p class="mt-4 max-w-md lg:max-w-4xl text-gray-500">
+                {{venueService.about}}
+            </p>
+        </header>
+
+        <div class="mt-8 sm:flex sm:items-center sm:justify-between">
+            <div class="block sm:hidden">
+                <button
+                    class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
+                    <span class="text-sm font-medium"> Filters & Sorting </span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4 rtl:rotate-180">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="hidden sm:flex sm:gap-8">
+                <div class="relative">
+                    <details class="group [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
+                            <span class="text-sm font-medium"> Availability </span>
+
+                            <span class="transition group-open:-rotate-180 inline-flex items-center select-none">
+                                <ng-icon name="heroChevronDownSolid" />
+                            </span>
+                        </summary>
+                    </details>
+                </div>
+
+                <div class="relative">
+                    <details class="group [&_summary::-webkit-details-marker]:hidden">
+                        <summary
+                            class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
+                            <span class="text-sm font-medium"> Price </span>
+
+                            <span class="transition group-open:-rotate-180 inline-flex items-center select-none">
+                                <ng-icon name="heroChevronDownSolid" />
+                            </span>
+                        </summary>
+                    </details>
+                </div>
+            </div>
+
+            <div class="hidden sm:block">
+                <label for="SortBy" class="sr-only">SortBy</label>
+
+                <select id="SortBy" class="h-10 rounded border-gray-300 text-sm" [(ngModel)]="selectedSortOption"
+                    (change)="sortProducts()">
+                    <option value="Name, ASC">Name, ASC</option>
+                    <option value="Name, DESC">Name, DESC</option>
+                    <option value="Price, ASC">Price, ASC</option>
+                    <option value="Price, DESC">Price, DESC</option>
+                </select>
+            </div>
+        </div>
+        <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            @for (event of venueService.products; track $index) {
+            <li>
+                <!-- Card -->
+                <div class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl">
+                    <img class="rounded-t-xl" src="/venue-2.webp" alt="">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">
+                            {{event.name}}
+                        </h3>
+                        <p class="mt-3 text-gray-500 line-clamp-3">
+                            {{event.about}}
+                        </p>
+                    </div>
+                    <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
+                        <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            href="#">
+                            Contact
+                        </a>
+                        <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            href="#">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                <!-- End Card -->
+            </li>
+
+            }
+
+        </ul>
+    </div>
+</section>

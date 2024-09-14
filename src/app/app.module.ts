@@ -31,7 +31,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent as DashboardLoginComponent } from './pages/login/login.component';
 import { RegisterComponent as DashboardRegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/dashboard/home/home.component';
-import { ProductsComponent } from './components/products/products.component';
 import { VenueComponent } from './pages/dashboard/services/venue/venue.component';
 import { PhotographyComponent } from './pages/dashboard/services/photography/photography.component';
 import { CateringComponent } from './pages/dashboard/services/catering/catering.component';
@@ -56,7 +55,6 @@ import { ExpenseTableComponent } from './components/dashboard/expense-table/expe
     DashboardLoginComponent,
     DashboardRegisterComponent,
     HomeComponent,
-    ProductsComponent,
     VenueComponent,
     PhotographyComponent,
     CateringComponent,

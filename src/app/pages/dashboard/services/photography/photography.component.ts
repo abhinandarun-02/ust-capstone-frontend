@@ -9,6 +9,8 @@ import { Service } from '../../../../components/products/service.model';
 export class PhotographyComponent {
   photographyService!: Service
 
+  selectedSortOption: string | undefined = "Name, ASC";
+
   constructor() {
     this.photographyService = {
       title: "Photography Booking",
@@ -57,5 +59,15 @@ export class PhotographyComponent {
 
       ]
     }
+  }
+
+  sortProducts() {
+    if (!this.selectedSortOption) return;
+    const [key, order] = this.selectedSortOption.split(', ');
+
+    this.photographyService.products.sort((a, b) => {
+      const compare = (key === 'Name' ? a.name.localeCompare(b.name) : a.price - b.price);
+      return order === 'ASC' ? compare : -compare;
+    });
   }
 }

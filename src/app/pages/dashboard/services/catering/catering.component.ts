@@ -9,6 +9,8 @@ import { Service } from '../../../../components/products/service.model';
 export class CateringComponent {
   cateringService!: Service
 
+  selectedSortOption: string | undefined = "Name, ASC";
+
   constructor() {
     this.cateringService = {
       title: "Catering Booking",
@@ -56,6 +58,16 @@ export class CateringComponent {
         }
       ]
     }
+  }
+
+  sortProducts() {
+    if (!this.selectedSortOption) return;
+    const [key, order] = this.selectedSortOption.split(', ');
+
+    this.cateringService.products.sort((a, b) => {
+      const compare = (key === 'Name' ? a.name.localeCompare(b.name) : a.price - b.price);
+      return order === 'ASC' ? compare : -compare;
+    });
   }
 }
 
