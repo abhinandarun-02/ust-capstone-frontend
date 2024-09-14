@@ -1,6 +1,7 @@
 export interface Catering {
     id: number;
     name: string;
+    image: string;
     price: number;
     location: string;
     about: string;
