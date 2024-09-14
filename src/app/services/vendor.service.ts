@@ -14,6 +14,21 @@ export class VendorService {
   constructor(private http: HttpClient) {
   }
 
+  getVenueById(venueId: number) {
+    const response = this.http.get<Venue>(`${environment.eventUrl}/venues/${venueId}`);
+    return response;
+  }
+
+  getPhotographyById(photographyId: number) {
+    const response = this.http.get<Photography>(`${environment.eventUrl}/photographies/${photographyId}`);
+    return response;
+  }
+
+  getCateringById(cateringId: number) {
+    const response = this.http.get<Catering>(`${environment.eventUrl}/caterings/${cateringId}`);
+    return response;
+  }
+
   getVenueVendors() {
     const response = this.http.get<Venue[]>(`${environment.eventUrl}/venues/`);
     return response;

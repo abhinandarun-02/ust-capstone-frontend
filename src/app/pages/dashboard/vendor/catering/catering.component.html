@@ -1,0 +1,121 @@
+<section class="relative px-8">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mx-auto max-md:px-2 xl:grid-cols-5">
+            <div class="img xl:col-span-2">
+                <div class="img-box h-full max-lg:mx-auto ">
+                    <img src={{catering.image}} alt="Yellow Tropical Printed Shirt image"
+                        class="max-lg:mx-auto lg:ml-auto h-full object-cover">
+                </div>
+            </div>
+            <div
+                class="xl:col-span-3 data w-full lg:pr-8 pr-0 xl:justify-start justify-center flex items-center max-lg:pb-10 xl:my-2 lg:my-5 my-0">
+                <div class="data w-full max-w-xl">
+                    <p class="text-md font-medium leading-8 text-indigo-600 mb-4">Services&nbsp; /&nbsp; Photography
+                    </p>
+                    <h2 class="font-bold text-2xl leading-10 text-gray-900 mb-2 capitalize">{{catering.name}}
+                    </h2>
+
+
+                    <div class="mb-4">
+                        <div class="flex  gap-2">
+                            <ng-icon name="heroMapPin" class="!size-5 mr-2" />
+                            <p class="text-gray-500 text-base font-normal">
+                                {{catering.location}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-500 text-base font-normal mb-5 ">
+                        @if (!isExpanded) {
+                        <span>
+                            {{catering.about.substring(0, 200)}}
+                            <a href="#" class="text-indigo-600"
+                                (click)="toggleDescription(); $event.preventDefault()">More....</a>
+                        </span>
+                        }
+                        @else {
+                        <span>
+                            {{catering.about}}
+                            <a href="#" class="text-indigo-600"
+                                (click)="toggleDescription(); $event.preventDefault()">Less</a>
+                        </span>
+                        }
+                    </p>
+                    <ul class="grid gap-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" rx="13" fill="#4F46E5" />
+                                <path
+                                    d="M7.66669 12.629L10.4289 15.3913C10.8734 15.8357 11.0956 16.0579 11.3718 16.0579C11.6479 16.0579 11.8701 15.8357 12.3146 15.3913L18.334 9.37183"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            <span class="font-normal text-base text-gray-900 ">Beautiful garden setting</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" rx="13" fill="#4F46E5" />
+                                <path
+                                    d="M7.66669 12.629L10.4289 15.3913C10.8734 15.8357 11.0956 16.0579 11.3718 16.0579C11.6479 16.0579 11.8701 15.8357 12.3146 15.3913L18.334 9.37183"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            <span class="font-normal text-base text-gray-900 ">Customizable decor options</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="26" height="26" rx="13" fill="#4F46E5" />
+                                <path
+                                    d="M7.66669 12.629L10.4289 15.3913C10.8734 15.8357 11.0956 16.0579 11.3718 16.0579C11.6479 16.0579 11.8701 15.8357 12.3146 15.3913L18.334 9.37183"
+                                    stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            <span class="font-normal text-base text-gray-900 ">On-site catering available</span>
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="group transition-all duration-500 p-4 rounded-full bg-indigo-50 hover:bg-indigo-100 hover:shadow-sm hover:shadow-indigo-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"
+                                fill="none">
+                                <path
+                                    d="M4.47084 14.3196L13.0281 22.7501L21.9599 13.9506M13.0034 5.07888C15.4786 2.64037 19.5008 2.64037 21.976 5.07888C24.4511 7.5254 24.4511 11.4799 21.9841 13.9265M12.9956 5.07888C10.5204 2.64037 6.49824 2.64037 4.02307 5.07888C1.54789 7.51738 1.54789 11.4799 4.02307 13.9184M4.02307 13.9184L4.04407 13.939M4.02307 13.9184L4.46274 14.3115"
+                                    stroke="#4F46E5" stroke-width="1.6" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+
+                        </button>
+                        <button
+                            class="text-center w-full px-5 py-3 rounded-[100px] bg-indigo-600 flex items-center justify-center font-semibold text-base text-white shadow-sm transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400"
+                            (click)="confirm()" icon="pi pi-check" label="Confirm">
+                            Book Now
+                        </button>
+                        <p-confirmDialog #cd>
+                            <ng-template pTemplate="headless" let-message>
+                                <div class="bg-white rounded-md flex flex-col items-center p-5 shadow-lg">
+                                    <span class="font-bold text-2xl mt-4 mb-2">
+                                        {{ message?.header }}
+                                    </span>
+                                    <p class="mb-0 text-gray-700">{{ message?.message }}</p>
+                                    <div class="flex items-center gap-2 mt-4">
+                                        <button
+                                            class="w-32 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition duration-300"
+                                            (click)="cd.accept()">
+                                            Confirm
+                                        </button>
+                                        <button
+                                            class="w-32 py-2 border border-indigo-600 text-indigo-600 rounded-full hover:bg-indigo-50 transition duration-300"
+                                            (click)="cd.reject()">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-confirmDialog>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -22,6 +22,7 @@ import { SidebarComponent } from './components/dashboard/sidebar/sidebar.compone
 import { DashboardNavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid } from '@ng-icons/heroicons/solid';
+import { heroMapPin } from '@ng-icons/heroicons/outline';
 import { featherLoader } from '@ng-icons/feather-icons';
 import { OnboardingFormComponent } from './components/dashboard/onboarding-form/onboarding-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -37,6 +38,11 @@ import { PhotographyComponent } from './pages/dashboard/services/photography/pho
 import { CateringComponent } from './pages/dashboard/services/catering/catering.component';
 import { ChartModule } from 'primeng/chart';
 import { ExpenseTableComponent } from './components/dashboard/expense-table/expense-table.component';
+import { VenuePageComponent } from './pages/dashboard/vendor/venue/venue.component';
+import { PhotographyPageComponent } from './pages/dashboard/vendor/photography/photography.component';
+import { CateringPageComponent } from './pages/dashboard/vendor/catering/catering.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 
 @NgModule({
@@ -60,6 +66,9 @@ import { ExpenseTableComponent } from './components/dashboard/expense-table/expe
     PhotographyComponent,
     CateringComponent,
     ExpenseTableComponent,
+    VenuePageComponent,
+    PhotographyPageComponent,
+    CateringPageComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +84,11 @@ import { ExpenseTableComponent } from './components/dashboard/expense-table/expe
     ReactiveFormsModule,
     ChartModule,
     MatFormFieldModule,
-    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid, featherLoader }),
+    ConfirmDialogModule,
+    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid, featherLoader, heroMapPin }),
   ],
   providers: [
+    ConfirmationService,
     provideAnimationsAsync(),
     provideHttpClient(withFetch(), withInterceptors([tokenInterceptor])),
   ],
