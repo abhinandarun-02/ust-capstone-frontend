@@ -53,7 +53,7 @@ export class CateringPageComponent implements OnInit {
               return;
             }
 
-            this.weddingService.bookVenue(weddingId, this.catering.id).subscribe({
+            this.weddingService.bookCatering(weddingId, this.catering.id).subscribe({
               next: (response) => {
                 console.log(response);
               },

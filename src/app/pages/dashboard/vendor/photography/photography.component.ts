@@ -53,7 +53,7 @@ export class PhotographyPageComponent implements OnInit {
               return;
             }
 
-            this.weddingService.bookVenue(weddingId, this.photography.id).subscribe({
+            this.weddingService.bookPhotography(weddingId, this.photography.id).subscribe({
               next: (response) => {
                 console.log(response);
               },
