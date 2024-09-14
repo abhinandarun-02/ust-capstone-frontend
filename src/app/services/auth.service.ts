@@ -57,4 +57,8 @@ export class AuthService {
   getUserClaims() {
     return this.payloadData;
   }
+
+  getUserId() {
+    return this.payloadData?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+  }
 }

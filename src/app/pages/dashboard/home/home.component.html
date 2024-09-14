@@ -1,34 +1,39 @@
+@if (wedding) {
 <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-6 p-4">
         <div class="bg-white rounded-lg border lg:col-span-3">
             <p id="countdown" class="text-2xl"></p>
-            <div class="rounded-lg overflow-hidden">
-                <div class="flex flex-col md:flex-row">
-                    <div class="text-center p-4 md:w-1/2">
-                        <p class="text-gray-600 mb-4 lg:text-nowrap">15th of August, 2025</p>
-                        <dl class="grid grid-cols-4 gap-4 text-center">
+            <div class="rounded-lg overflow-hidden h-full">
+                <div class="flex flex-col md:flex-row max-lg:flex-wrap items-center h-full">
+                    <div class="p-4">
+                        @if (loading) {
+                        <ng-icon class="animate-spin" name="featherLoader" />
+                        } @else {
+                        <h2 class="text-lg xl:text-nowrap font-semibold mb-4 w-full">{{wedding.name}}</h2>
+                        <p class="text-gray-600 mb-4 w-full xl:text-nowrap">{{getWeddingDate()}}</p>
+                        <dl class="grid grid-cols-4 gap-12 text-center">
                             <div>
                                 <dt class="text-sm font-medium text-gray-500">days</dt>
-                                <dd class="text-lg font-semibold">337</dd>
+                                <dd class="text-lg font-semibold">{{countdown.days}}</dd>
                             </div>
                             <div>
                                 <dt class="text-sm font-medium text-gray-500">hours</dt>
-                                <dd class="text-lg font-semibold">9</dd>
+                                <dd class="text-lg font-semibold">{{countdown.hours}}</dd>
                             </div>
                             <div>
                                 <dt class="text-sm font-medium text-gray-500">min</dt>
-                                <dd class="text-lg font-semibold">39</dd>
+                                <dd class="text-lg font-semibold">{{countdown.minutes}}</dd>
                             </div>
                             <div>
                                 <dt class="text-sm font-medium text-gray-500">s</dt>
-                                <dd class="text-lg font-semibold">2</dd>
+                                <dd class="text-lg font-semibold">{{countdown.seconds}}</dd>
                             </div>
                         </dl>
+                        }
                     </div>
-                    <div class="flex justify-center items-center w-full">
+                    <div class="hidden 2xl:flex justify-center items-center w-full">
                         <a>
-                            <img src="https://cdn1.weddingwire.in/assets/tools/en_IN/bg_dash-cover.jpg" alt="John"
-                                class="max-w-32 max-h-32 w-full rounded-lg">
+                            <img src="/bg_dash-cover.jpg" alt="John" class="max-w-32 max-h-32 w-full rounded-lg">
                         </a>
                     </div>
                 </div>
@@ -36,19 +41,21 @@
 
         </div>
         <div class="bg-white p-6 rounded-lg border lg:col-span-2">
-            <img class="size-12" src="https://cdn1.weddingwire.in/assets/svg/original/illustration/notebook.svg" alt="">
-            <p class="font-bold mt-2">0 of 5</p>
+            <img class="size-12" src="/icons/notebook.svg" alt="">
+            @if (loading) {
+            <ng-icon class="animate-spin" name="featherLoader" />
+            } @else {
+            <p class="font-bold mt-2">{{ wedding.services.length + " of 3" }}</p>
+            }
             <h2 class="">Services Registered</h2>
         </div>
         <div class="bg-white p-6 rounded-lg border lg:col-span-2">
-            <img class="size-12" src="https://cdn1.weddingwire.in/assets/svg/original/illustration/add_guest.svg"
-                alt="">
+            <img class="size-12" src="/icons/guest.svg" alt="">
             <p class="font-bold mt-2">3 of 4</p>
             <h2 class="">Guests Attending</h2>
         </div>
         <div class="bg-white p-6 rounded-lg border lg:col-span-2">
-            <img class="size-12" src="https://cdn1.weddingwire.in/assets/svg/original/illustration/calculator.svg"
-                alt="">
+            <img class="size-12" src="/icons/calculator.svg" alt="">
             <p class="font-bold mt-2">$10,000</p>
             <h2 class="">Budget Spent</h2>
         </div>
@@ -63,3 +70,4 @@
         </div>
     </div>
 </div>
+}

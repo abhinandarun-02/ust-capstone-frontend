@@ -1,3 +1,5 @@
+import { Service } from "./service.model";
+
 export interface Wedding {
     id: number;
     name: string;
@@ -7,4 +9,5 @@ export interface Wedding {
     plannerUsername: string;
     plannerId: string;
     budget: string;
+    services: Service[]
 }

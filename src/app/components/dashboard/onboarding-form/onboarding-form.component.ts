@@ -35,34 +35,36 @@ export class OnboardingFormComponent implements OnInit {
       })
     });
   }
-  
 
-  
-  
+
+
+
   onSubmit() {
     if (this.onboardingForm.valid) {
       const formValue = this.onboardingForm.value;
       console.log(formValue);
       const tokenData = this.authService.decodeToken();
-      
 
-      const wedding : CreateWedding = {
+
+      const wedding: CreateWedding = {
         name: `${formValue.groomName} and ${formValue.brideName}'s Wedding`,
-        date: new Date().toISOString(),
+        date: new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000).toISOString(),
         guestCount: formValue.guestCount,
         budget: formValue.budget,
         location: formValue.city,
         plannerUsername: tokenData?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'] || "",
         plannerId: tokenData?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'] || ""
-        
+
       }
-      
+
       this.weddingService.createWedding(wedding).subscribe({
         next: (response) => {
           console.log('POST request successful:', response);
           this.userService.setUserOnboardingStatus(false)
 
           this.dialogService.closeAllDialog()
+
+          window.location.reload();
         },
         error: (err) => {
           console.error('Error occurred during POST request:', err);

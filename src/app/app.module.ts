@@ -22,6 +22,7 @@ import { SidebarComponent } from './components/dashboard/sidebar/sidebar.compone
 import { DashboardNavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid } from '@ng-icons/heroicons/solid';
+import { featherLoader } from '@ng-icons/feather-icons';
 import { OnboardingFormComponent } from './components/dashboard/onboarding-form/onboarding-form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -74,7 +75,7 @@ import { ExpenseTableComponent } from './components/dashboard/expense-table/expe
     ReactiveFormsModule,
     ChartModule,
     MatFormFieldModule,
-    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid }),
+    NgIconsModule.withIcons({ heroHomeSolid, heroUserSolid, heroAdjustmentsHorizontalSolid, heroArrowRightOnRectangleSolid, heroChevronDownSolid, featherLoader }),
   ],
   providers: [
     provideAnimationsAsync(),

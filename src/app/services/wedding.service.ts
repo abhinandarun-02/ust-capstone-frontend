@@ -17,4 +17,9 @@ export class WeddingService {
     const response = this.http.post<string>(`${environment.eventUrl}/wedding`, wedding);
     return response;
   }
+
+  getWeddingByPlannerId(plannerId: string) {
+    const response = this.http.get<Wedding>(`${environment.eventUrl}/wedding/plannerId/${plannerId}`);
+    return response;
+  }
 }
