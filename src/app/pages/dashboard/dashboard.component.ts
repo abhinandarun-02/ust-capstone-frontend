@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { DialogService } from '../../services/dialog.service';
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,14 +10,14 @@ import { UserService } from '../../services/user.service';
 export class DashboardComponent {
   
   dialogService = inject(DialogService)
-  userService = inject(UserService)
+  authService = inject(AuthService)
 
   ngOnInit() {
     this.checkOnboardingStatus();
   }
 
   checkOnboardingStatus() {
-    if (this.userService.isUserOnboarding()) {
+    if (this.authService.isUserOnboarding()) {
       this.openRegisterDialog();
     }
   }

@@ -1,6 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { WeddingService } from '../../../services/wedding.service';
-import { UserService } from '../../../services/user.service';
 import { AuthService } from '../../../services/auth.service';
 import { ToastService } from '../../../services/toast.service';
 import { Wedding } from '../../../models/wedding.model';
@@ -16,7 +15,6 @@ export class HomeComponent implements OnInit {
 
   private weddingService = inject(WeddingService)
   private authService = inject(AuthService)
-  private userService = inject(UserService)
   private toastService = inject(ToastService)
   private expenseService = inject(ExpenseService)
 
@@ -45,7 +43,7 @@ export class HomeComponent implements OnInit {
     this.loading = true;
     let plannerId = this.authService.getUserId()
 
-    if (this.userService.isUserOnboarding()) {
+    if (this.authService.isUserOnboarding()) {
       return;
     }
 

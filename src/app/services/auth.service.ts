@@ -28,6 +28,19 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiUrl}/auth/login`, { Email, Password });
   }
 
+  isUserOnboarding(): boolean {
+    const token = this.decodeToken()
+    const onboardingStatus = token?.isNewUser;
+
+    if (!onboardingStatus) return true;
+
+    return onboardingStatus === 'True';
+  }
+
+  commpleteOnboarding(userId: string): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/auth/complete-onboarding`, { userId });
+  }
+
   storeToken(token: string) {
     localStorage.setItem('token', token);
   }

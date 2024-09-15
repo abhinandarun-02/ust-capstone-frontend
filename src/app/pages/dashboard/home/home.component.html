@@ -64,10 +64,12 @@
         <div class="col-span-1 xl:col-span-2 w-full">
             <app-expense-table [expenses]="expenses" />
         </div>
+        @if (expenses.length > 0) {
         <div class="col-span-1 border p-4 rounded-lg">
             <p-chart type="doughnut" [data]="data" class="max-w-sm block" />
             <h2 class="text-center mt-3 font-medium uppercase">Budget Breakdown</h2>
         </div>
+        }
     </div>
 </div>
 }

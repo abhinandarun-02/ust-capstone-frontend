@@ -54,6 +54,7 @@ export class LoginComponent {
 
 
         this.router.navigate(['dashboard']);
+        window.location.reload();
 
       },
       error: (err) => {

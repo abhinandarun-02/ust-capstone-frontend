@@ -1,6 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../../services/user.service';
 import { DialogService } from '../../../services/dialog.service';
 import { WeddingService } from '../../../services/wedding.service';
 import { CreateWedding } from '../../../create-models/create.wedding.model';
@@ -15,7 +14,6 @@ export class OnboardingFormComponent implements OnInit {
   onboardingForm!: FormGroup;
 
   private fb = inject(FormBuilder)
-  private userService = inject(UserService)
   private dialogService = inject(DialogService)
   private weddingService = inject(WeddingService)
   private authService = inject(AuthService)
@@ -40,10 +38,12 @@ export class OnboardingFormComponent implements OnInit {
 
 
   onSubmit() {
+
     if (this.onboardingForm.valid) {
       const formValue = this.onboardingForm.value;
       console.log(formValue);
       const tokenData = this.authService.decodeToken();
+      const userId = tokenData?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'] || "";
 
 
       const wedding: CreateWedding = {
@@ -53,18 +53,28 @@ export class OnboardingFormComponent implements OnInit {
         budget: formValue.budget,
         location: formValue.city,
         plannerUsername: tokenData?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'] || "",
-        plannerId: tokenData?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'] || ""
+        plannerId: userId
 
       }
 
       this.weddingService.createWedding(wedding).subscribe({
         next: (response) => {
           console.log('POST request successful:', response);
-          this.userService.setUserOnboardingStatus(false)
+          this.authService.commpleteOnboarding(userId).subscribe({
+            next: (response) => {
+              debugger;
+              this.authService.storeToken(response.token);
+            },
+            error: (err) => {
+              console.error('Error occurred during Onboarding Request:', err);
+
+            }
+          }
+          );
+          window.location.reload();
 
           this.dialogService.closeAllDialog()
 
-          window.location.reload();
         },
         error: (err) => {
           console.error('Error occurred during POST request:', err);
